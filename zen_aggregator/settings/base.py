@@ -33,8 +33,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-ZENDESK_SHORT_URL = os.environ.get('ZENDESK_URL', '')
-ZENDESK_EMAIL = os.environ.get('ZENDESK_EMAIL', '')
+ZENDESK_SHORT_URL = os.environ.get('ZENDESK_SHORT_URL', '')
+ZENDESK_USERNAME = os.environ.get('ZENDESK_USERNAME', '')
 ZENDESK_TOKEN = os.environ.get('ZENDESK_TOKEN', '')
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'moj_template',
     'aggregator',
 ]
 
@@ -73,11 +74,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'aggregator.context_processors.globals'
             ],
         },
     },
 ]
-
 
 WSGI_APPLICATION = 'zen_aggregator.wsgi.application'
 
