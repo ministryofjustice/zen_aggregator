@@ -18,8 +18,8 @@ def get_password(request):
             if password == 'cabbage':
 
                 now = datetime.datetime.now()
-                csv_filename = '%s-%s-%s-%s_%s-%s-%s' % ('aggregation', now.year, now.month, now.day, now.hour,
-                                                           now.minute, now.second)
+                csv_filename = '%s-%s-%s-%s_%s-%s' % ('aggregation', now.year, now.month, now.day,
+                                                        now.hour, now.minute)
                 content_disp = 'attachment; filename=' + csv_filename + '.csv'
 
                 response = HttpResponse(content_type='text/csv')
