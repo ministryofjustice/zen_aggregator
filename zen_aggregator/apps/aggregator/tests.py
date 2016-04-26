@@ -1,8 +1,9 @@
+import unittest
 from django.test import TestCase
 from selenium import webdriver
 
 
-class TitleTest(TestCase):
+class TitleTest(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome('/usr/local/bin/chromedriver')

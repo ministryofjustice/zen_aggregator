@@ -20,7 +20,9 @@ here = lambda *x: join(abspath(dirname(__file__)), *x)
 PROJECT_ROOT = here("..")
 root = lambda *x: join(abspath(PROJECT_ROOT), *x)
 
+sys.path.insert(0, root())
 sys.path.insert(0, root('apps'))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -30,6 +32,8 @@ SECRET_KEY = '&30cfe59!@a8h4j&1x8&5b2!d*7u!&wk27*n4d0id+vvhp*d57'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+TEST_RUNNER = 'zen_aggregator.testing.FastTestRunner'
 
 ALLOWED_HOSTS = []
 
@@ -86,17 +90,7 @@ WSGI_APPLICATION = 'zen_aggregator.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', ''),
-        'USER': os.environ.get('DB_USER', ''),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        'HOST': os.environ.get('DB_HOST', ''),
-        'PORT': os.environ.get('DB_PORT', ''),
-    }
-}
-
+DATABASES = {}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
