@@ -13,7 +13,7 @@ class TitleTest(unittest.TestCase):
 
     def test_title_contents(self):
         self.browser.get('http://localhost:8000')
-        self.assertIn('test_view', self.browser.title)
+        self.assertIn('Zendesk', self.browser.title)
 
 
 

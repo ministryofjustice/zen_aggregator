@@ -24,18 +24,30 @@ sys.path.insert(0, root())
 sys.path.insert(0, root('apps'))
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&30cfe59!@a8h4j&1x8&5b2!d*7u!&wk27*n4d0id+vvhp*d57'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+#X_FRAME_OPTIONS = 'DENY'
+
+#SECURE_CONTENT_TYPE_NOSNIFF = True
+
+#SECURE_BROWSER_XSS_FILTER = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEST_RUNNER = 'zen_aggregator.testing.FastTestRunner'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+# ALLOWED_HOSTS = [
+#     '127.0.0.1',
+#     '.herokuapp.com',
+# ]
 
 ZENDESK_SHORT_URL = os.environ.get('ZENDESK_SHORT_URL', '')
 ZENDESK_USERNAME = os.environ.get('ZENDESK_USERNAME', '')
@@ -128,10 +140,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 # .local.py overrides all the common settings.
-try:
-    from .local import *
-except ImportError:
-    pass
+# try:
+#     from .local import *
+# except ImportError:
+#     pass
