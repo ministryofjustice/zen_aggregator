@@ -1,1 +1,1 @@
-web: gunicorn zen_aggregator/wsgi.py --log-file -
+web: gunicorn zen_aggregator.wsgi --log-file -
