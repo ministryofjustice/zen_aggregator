@@ -10,7 +10,7 @@ def read_zendesk_data():
     return data
 
 
-def create_csv(response, data):
+def add_csv_to_response(response, data):
 
     csv_writer = csv.writer(response, delimiter=',')
 
@@ -26,4 +26,3 @@ def create_csv(response, data):
     csv_writer.writerow('')
     csv_writer.writerow([mean_score])
 
-    return response

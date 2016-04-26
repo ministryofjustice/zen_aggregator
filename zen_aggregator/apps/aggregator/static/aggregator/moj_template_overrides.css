@@ -21,3 +21,8 @@ div.inner-block {
     margin-left: auto;
     margin-right: auto;
 }
+
+#proposition-name:hover {
+    text-decoration: none !important;
+}
+

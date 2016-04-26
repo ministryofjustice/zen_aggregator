@@ -77,8 +77,6 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'zen_aggregator.urls'
 
-print(os.path.join(root('templates')))
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

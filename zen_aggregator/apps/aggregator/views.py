@@ -6,6 +6,16 @@ from .forms import PasswordForm
 from .zendesk_utils import *
 
 
+def generate_response():
+
+    now = datetime.datetime.now()
+    csv_filename = '%s-%s-%s-%s_%s-%s' % ('aggregation', now.year, now.month, now.day, now.hour, now.minute)
+    content_disp = 'attachment; filename=' + csv_filename + '.csv'
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = content_disp
+    return response
+
+
 def get_password(request):
 
     if request.method == 'POST':
@@ -17,19 +27,11 @@ def get_password(request):
             password = form.cleaned_data['password']
 
             if password == os.environ.get('ZA_PASSWORD'):
-
-                now = datetime.datetime.now()
-                csv_filename = '%s-%s-%s-%s_%s-%s' % ('aggregation', now.year, now.month, now.day,
-                                                        now.hour, now.minute)
-                content_disp = 'attachment; filename=' + csv_filename + '.csv'
-
-                response = HttpResponse(content_type='text/csv')
-                response['Content-Disposition'] = content_disp
+                response = generate_response()
                 data = read_zendesk_data()
-                response = create_csv(response, data)
+                add_csv_to_response(response, data)
 
             else:
-                #response = HttpResponse('<html><head><title>test_view</title></head><body>Password Incorrect</body></html>')
                 response = render(request, 'aggregator/wrong_password.html')
 
         else:
