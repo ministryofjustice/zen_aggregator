@@ -2,3 +2,4 @@ zen_aggregator/settings/local.py
 .idea
 *.pyc
 .DS_Store
+staticfiles/

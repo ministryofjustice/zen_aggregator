@@ -31,23 +31,21 @@ sys.path.insert(0, root('apps'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-#X_FRAME_OPTIONS = 'DENY'
+X_FRAME_OPTIONS = 'DENY'
 
-#SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
-#SECURE_BROWSER_XSS_FILTER = True
+SECURE_BROWSER_XSS_FILTER = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 TEST_RUNNER = 'zen_aggregator.testing.FastTestRunner'
 
-ALLOWED_HOSTS = ['*']
-
-# ALLOWED_HOSTS = [
-#     '127.0.0.1',
-#     '.herokuapp.com',
-# ]
+ALLOWED_HOSTS = [
+    'localhost',
+    '.herokuapp.com',
+]
 
 ZENDESK_SHORT_URL = os.environ.get('ZENDESK_SHORT_URL', '')
 ZENDESK_USERNAME = os.environ.get('ZENDESK_USERNAME', '')
@@ -144,7 +142,7 @@ STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 # .local.py overrides all the common settings.
-# try:
-#     from .local import *
-# except ImportError:
-#     pass
+try:
+    from .local import *
+except ImportError:
+    pass
