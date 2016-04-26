@@ -1,0 +1,23 @@
+#global-header-bar {
+
+    max-width: none;
+    width: 100%;
+
+}
+
+div.inner-block {
+
+    background-color: #005ea5;
+
+}
+
+.header-logo {
+    display: none;
+}
+
+#centre_div {
+
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
