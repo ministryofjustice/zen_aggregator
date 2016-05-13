@@ -28,7 +28,7 @@ def get_password(request):
 
             if password == os.environ.get('ZA_PASSWORD'):
                 response = generate_response()
-                data = read_zendesk_data()
+                data = get_adp_tickets()
                 add_csv_to_response(response, data)
 
             else:

@@ -47,9 +47,14 @@ ALLOWED_HOSTS = [
     '.herokuapp.com',
 ]
 
+
 ZENDESK_SHORT_URL = os.environ.get('ZENDESK_SHORT_URL', '')
 ZENDESK_USERNAME = os.environ.get('ZENDESK_USERNAME', '')
 ZENDESK_TOKEN = os.environ.get('ZENDESK_TOKEN', '')
+
+# Zenpy only:
+ZENDESK_SUBDOMAIN = os.environ.get('ZENDESK_SUBDOMAIN', '')
+ZENDESK_EMAIL = os.environ.get('ZENDESK_EMAIL', '')
 
 # Application definition
 
