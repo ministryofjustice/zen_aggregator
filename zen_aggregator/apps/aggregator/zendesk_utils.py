@@ -23,7 +23,7 @@ def get_adp_tickets():
     while start_date <= datetime.datetime.now():
 
         if end_date > datetime.datetime.now():
-            end_date = datetime.datetime.now()
+            end_date = datetime.datetime.now() + relativedelta(days=+1)
 
         results = zen.search(type='ticket', subject='Feedback (gamma)', created_between=[start_date, end_date])
 
