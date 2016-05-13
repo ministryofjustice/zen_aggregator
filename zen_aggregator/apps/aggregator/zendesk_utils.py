@@ -40,12 +40,12 @@ def add_csv_to_response(response, data):
 
     csv_writer = csv.writer(response, delimiter=',')
 
-    csv_writer.writerow(['Score', 'Date', 'Subject', 'Tags'])
+    csv_writer.writerow(['Score', 'ID', 'Date', 'Subject', 'Tags'])
 
     sum_scores = 0
     for item in data:
 
-        csv_writer.writerow([item.description[0], item.created_at[:10], item.subject, ', '.join(item.tags)])
+        csv_writer.writerow([item.description[0], item.id, item.created_at[:10], item.subject, ', '.join(item.tags)])
         sum_scores += int(item.description[0])
 
     mean_score = 'Mean score = %s' % (str(sum_scores/len(data)))
