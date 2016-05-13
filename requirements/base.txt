@@ -1,8 +1,12 @@
+cachetools==1.1.6
 Django==1.9.5
+django-lockdown==1.2
 django-moj-template==0.23.1
 gunicorn==19.4.5
+python-dateutil==2.5.3
 requests==2.9.1
 selenium==2.53.2
+six==1.10.0
 static3==0.6.1
 whitenoise==3.0
-zdesk==2.4.0
+zenpy==1.0.8

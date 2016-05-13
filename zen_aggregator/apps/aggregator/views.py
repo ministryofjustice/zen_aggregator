@@ -1,5 +1,4 @@
 import os
-import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import PasswordForm

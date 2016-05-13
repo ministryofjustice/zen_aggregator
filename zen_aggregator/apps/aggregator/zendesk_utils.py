@@ -1,16 +1,7 @@
-import csv
-import zdesk
 import datetime
 from dateutil.relativedelta import relativedelta
-
-
-import time
 import csv
-import urllib.parse
-import requests
-from requests.auth import HTTPBasicAuth
 from django.conf import settings
-import zdesk
 import zenpy
 
 
@@ -24,7 +15,7 @@ def get_adp_tickets():
 
     zen = zenpy.Zenpy(**ZENPY_CREDS)
 
-    start_date = datetime.datetime(2015, 11, 1, 0, 0, 0)  # 01/10/15, 00:01
+    start_date = datetime.datetime(2015, 11, 1, 0, 0, 0)
     end_date = datetime.datetime(2016, 1, 1, 0, 0, 0)
 
     all_results = []
@@ -35,8 +26,6 @@ def get_adp_tickets():
             end_date = datetime.datetime.now()
 
         results = zen.search(type='ticket', subject='Feedback (gamma)', created_between=[start_date, end_date])
-
-        # all_results = all_results + results
 
         for result in results:
             all_results.append(result)
