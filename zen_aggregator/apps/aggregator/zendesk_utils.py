@@ -30,8 +30,8 @@ def get_adp_tickets():
         for result in results:
             all_results.append(result)
 
-        start_date = start_date + relativedelta(months=+1)
-        end_date = end_date + relativedelta(months=+1)
+        start_date = start_date + relativedelta(months=+2)
+        end_date = end_date + relativedelta(months=+2)
 
     return all_results
 
