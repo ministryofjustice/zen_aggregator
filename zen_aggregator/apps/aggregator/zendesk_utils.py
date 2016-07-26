@@ -45,12 +45,14 @@ def add_csv_to_response(response, data):
     sum_scores = 0
     for item in data:
 
-        csv_writer.writerow([item.description[0], item.id, item.created_at[:10], item.subject, ', '.join(item.tags)])
-        # import ipdb; ipdb.set_trace()
-        try:
-            sum_scores += int(item.description[0])
-        except ValueError:
-            print('Error with ticket: ' + str(item.id))
+        rating = 'N/A'
+        for character in item.description:
+            if character.isnumeric():
+                rating = character
+                sum_scores += int(rating)
+                break
+
+        csv_writer.writerow([rating, item.id, item.created_at[:10], item.subject, ', '.join(item.tags)])
 
     mean_score = 'Mean score = %s' % (str(sum_scores/len(data)))
 
